@@ -30,19 +30,19 @@ public class VoteService implements IVoteService{
     public void remove(Long id) {
         voteRepository.deleteById(id);
     }
-
-    @Override
-    public Iterable<Vote> numberOfTick() {
-        return voteRepository.numberOfTick();
-    }
-
-    @Override
-    public Iterable<Vote> numberOfQuestionMark() {
-        return voteRepository.numberOfQuestionMark();
-    }
-
-    @Override
-    public Iterable<Vote> numberOfRefuse() {
-        return voteRepository.numberOfRefuse();
-    }
+//
+//    @Override
+//    public Iterable<Vote> numberOfTick() {
+//        return voteRepository.numberOfTick();
+//    }
+//
+//    @Override
+//    public Iterable<Vote> numberOfQuestionMark() {
+//        return voteRepository.numberOfQuestionMark();
+//    }
+//
+//    @Override
+//    public Iterable<Vote> numberOfRefuse() {
+//        return voteRepository.numberOfRefuse();
+//    }
 }

@@ -10,21 +10,42 @@ public class Vote {
     @ManyToOne
     @JoinColumn(name = "eventId")
     private Event event;
-    private int tick;
-    private int questionMark;
 
-    private int refuse;
+//    @ManyToOne
+//    @JoinColumn(name = "selecttId")
+//    private Selectt selectt;
+
+    private String Schedule;
+    private String Selection;
+    private String comment;
 
     public Vote() {
     }
 
-    public Vote(Long id, Event event, int tick, int questionMark, int refuse) {
+    public Vote(Long id, Event event, String schedule, String selection, String comment) {
         this.id = id;
         this.event = event;
-        this.tick = tick;
-        this.questionMark = questionMark;
-        this.refuse = refuse;
+        Schedule = schedule;
+        Selection = selection;
+        this.comment = comment;
     }
+
+//    public Vote(Long id, Event event, Selectt selectt, String schedule, String selection, String comment) {
+//        this.id = id;
+//        this.event = event;
+//        this.selectt = selectt;
+//        Schedule = schedule;
+//        Selection = selection;
+//        this.comment = comment;
+//    }
+//
+//    public Selectt getSelectt() {
+//        return selectt;
+//    }
+//
+//    public void setSelectt(Selectt selectt) {
+//        this.selectt = selectt;
+//    }
 
     public Long getId() {
         return id;
@@ -42,27 +63,27 @@ public class Vote {
         this.event = event;
     }
 
-    public int getTick() {
-        return tick;
+    public String getSchedule() {
+        return Schedule;
     }
 
-    public void setTick(int tick) {
-        this.tick = tick;
+    public void setSchedule(String schedule) {
+        Schedule = schedule;
     }
 
-    public int getQuestionMark() {
-        return questionMark;
+    public String getSelection() {
+        return Selection;
     }
 
-    public void setQuestionMark(int questionMark) {
-        this.questionMark = questionMark;
+    public void setSelection(String selection) {
+        Selection = selection;
     }
 
-    public int getRefuse() {
-        return refuse;
+    public String getComment() {
+        return comment;
     }
 
-    public void setRefuse(int refuse) {
-        this.refuse = refuse;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
