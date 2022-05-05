@@ -30,6 +30,21 @@ public class VoteService implements IVoteService{
     public void remove(Long id) {
         voteRepository.deleteById(id);
     }
+
+    @Override
+    public Iterable<Vote> schedule() {
+        return voteRepository.schedule();
+    }
+
+    @Override
+    public Iterable<Vote> status() {
+        return voteRepository.status();
+    }
+
+    @Override
+    public Iterable<Vote> comment() {
+        return voteRepository.comment();
+    }
 //
 //    @Override
 //    public Iterable<Vote> numberOfTick() {

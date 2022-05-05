@@ -14,5 +14,10 @@ public interface VoteRepository extends JpaRepository<Vote,Long> {
 //    @Query("select count(refuse)from Vote where refuse>0")
 //    Iterable<Vote> numberOfRefuse();
 
-
+      @Query("select schedule from Vote ")
+    Iterable<Vote> schedule();
+      @Query("select status from Vote ")
+    Iterable<Vote> status();
+      @Query("select comment from Vote ")
+    Iterable<Vote> comment();
 }

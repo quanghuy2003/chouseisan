@@ -24,6 +24,32 @@ public class VoteController {
         return new ResponseEntity<>(votes, HttpStatus.OK);
     }
 
+    @GetMapping("/findSchedule")
+    public ResponseEntity<Iterable<Vote>> findAllSchedule() {
+        List<Vote> votes = (List<Vote>) voteService.schedule();
+        if (votes.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(votes, HttpStatus.OK);
+    }
+
+    @GetMapping("/findStatus")
+    public ResponseEntity<Iterable<Vote>> findAllStatus() {
+        List<Vote> votes = (List<Vote>) voteService.status();
+        if (votes.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(votes, HttpStatus.OK);
+    }
+
+    @GetMapping("/findComment")
+    public ResponseEntity<Iterable<Vote>> findAllComment() {
+        List<Vote> votes = (List<Vote>) voteService.comment();
+        if (votes.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(votes, HttpStatus.OK);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Vote> findById(@PathVariable Long id) {
         return new ResponseEntity<>(voteService.findById(id).get(), HttpStatus.OK);

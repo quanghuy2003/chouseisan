@@ -15,18 +15,18 @@ public class Vote {
 //    @JoinColumn(name = "selecttId")
 //    private Selectt selectt;
 
-    private String Schedule;
-    private String Selection;
+    private String schedule;
+    private String status;
     private String comment;
 
     public Vote() {
     }
 
-    public Vote(Long id, Event event, String schedule, String selection, String comment) {
+    public Vote(Long id, Event event, String schedule, String status, String comment) {
         this.id = id;
         this.event = event;
-        Schedule = schedule;
-        Selection = selection;
+        this.schedule = schedule;
+        this.status = status;
         this.comment = comment;
     }
 
@@ -64,19 +64,19 @@ public class Vote {
     }
 
     public String getSchedule() {
-        return Schedule;
+        return schedule;
     }
 
     public void setSchedule(String schedule) {
-        Schedule = schedule;
+        this.schedule = schedule;
     }
 
-    public String getSelection() {
-        return Selection;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSelection(String selection) {
-        Selection = selection;
+    public void setStatus(String selection) {
+        this.status = selection;
     }
 
     public String getComment() {
