@@ -36,7 +36,7 @@ public class EventController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @CrossOrigin
-    @GetMapping("/seach{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Event> findById(@PathVariable Long id) {
         eventService.findById(id).get();
         return new ResponseEntity<>( HttpStatus.OK);

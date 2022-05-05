@@ -13,10 +13,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/vote")
 public class VoteController {
-
     @Autowired
     VoteService voteService;
-
+    @CrossOrigin
     @GetMapping("/findAll")
     public ResponseEntity<Iterable<Vote>> findAll() {
         List<Vote> votes = (List<Vote>) voteService.findAll();
@@ -26,25 +25,25 @@ public class VoteController {
         return new ResponseEntity<>(votes, HttpStatus.OK);
     }
 
-
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Vote> findById(@PathVariable Long id) {
         return new ResponseEntity<>(voteService.findById(id).get(), HttpStatus.OK);
     }
-
+    @CrossOrigin
     @PostMapping("/add")
     public ResponseEntity<Vote> add(@RequestBody Vote vote) {
         voteService.save(vote);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Vote> delete(@PathVariable Long id) {
         Optional<Vote> vote = voteService.findById(id);
         voteService.remove(id);
         return new ResponseEntity<>(vote.get(), HttpStatus.NO_CONTENT);
     }
-
+    @CrossOrigin
     @PutMapping("/{id}")
     public ResponseEntity<Vote> update(@PathVariable Long id, @RequestBody Vote vote) {
         Optional<Vote> vote1 = voteService.findById(id);
@@ -52,7 +51,7 @@ public class VoteController {
         voteService.save(vote);
         return new ResponseEntity<>(vote1.get(), HttpStatus.OK);
     }
-
+    @CrossOrigin
     @PutMapping("/vote/{id}/tick")
     public ResponseEntity<Vote> increaseTick(@PathVariable Long id) {
         Vote vote = voteService.findById(id).get();
@@ -62,7 +61,7 @@ public class VoteController {
         voteService.save(vote);
         return new ResponseEntity<>(vote, HttpStatus.OK);
     }
-
+    @CrossOrigin
     @PutMapping("/vote/{id}/questionMark")
     public ResponseEntity<Vote> increaseQuestionMark(@PathVariable Long id) {
         Vote vote = voteService.findById(id).get();
@@ -72,7 +71,7 @@ public class VoteController {
         voteService.save(vote);
         return new ResponseEntity<>(vote, HttpStatus.OK);
     }
-
+    @CrossOrigin
     @PutMapping("/vote/{id}/refuse")
     public ResponseEntity<Vote> increaseRefuse(@PathVariable Long id) {
         Vote vote = voteService.findById(id).get();
@@ -82,7 +81,7 @@ public class VoteController {
         voteService.save(vote);
         return new ResponseEntity<>(vote, HttpStatus.OK);
     }
-
+    @CrossOrigin
     @GetMapping("/findAllTick")
     public ResponseEntity<Iterable<Vote>> getTick() {
         List<Vote> votes = (List<Vote>) voteService.numberOfTick();
@@ -91,7 +90,7 @@ public class VoteController {
         }
         return new ResponseEntity<>(votes, HttpStatus.OK);
     }
-
+    @CrossOrigin
     @GetMapping("/findAllQuestionMark")
     public ResponseEntity<Iterable<Vote>> getQuestionMark() {
         List<Vote> votes = (List<Vote>) voteService.numberOfQuestionMark();
@@ -100,7 +99,7 @@ public class VoteController {
         }
         return new ResponseEntity<>(votes, HttpStatus.OK);
     }
-
+    @CrossOrigin
     @GetMapping("/findAllRefuse")
     public ResponseEntity<Iterable<Vote>> getRefuse() {
         List<Vote> votes = (List<Vote>) voteService. numberOfRefuse();
