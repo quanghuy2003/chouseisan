@@ -34,9 +34,9 @@ public class EventController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Event> findById(@PathVariable Long id) {
-        eventService.findById(id).get();
-        return new ResponseEntity<>( HttpStatus.OK);
+    public ResponseEntity<Optional<Event>> findById(@PathVariable Long id) {
+        ;
+        return new ResponseEntity<>(eventService.findById(id), HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Event> delete(@PathVariable Long id) {
@@ -44,6 +44,8 @@ public class EventController {
         eventService.remove(id);
         return new ResponseEntity<>(event.get(), HttpStatus.NO_CONTENT);
     }
+    @CrossOrigin
+
     @PutMapping("/{id}")
     public ResponseEntity<Event> update(@PathVariable Long id, @RequestBody Event event) {
         Optional<Event> eventOptional = eventService.findById(id);

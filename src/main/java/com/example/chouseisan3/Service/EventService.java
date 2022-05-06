@@ -17,12 +17,12 @@ public class EventService implements IEventService{
     }
 
     @Override
-    public Iterable findAll() {
+    public Iterable<Event> findAll() {
         return eventRepository.findAll();
     }
 
     @Override
-    public Optional findById(Long id) {
+    public Optional<Event> findById(Long id) {
         return eventRepository.findById(id);
     }
 
