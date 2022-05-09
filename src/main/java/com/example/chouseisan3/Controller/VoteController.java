@@ -1,6 +1,8 @@
 package com.example.chouseisan3.Controller;
 
+import com.example.chouseisan3.Model.Event;
 import com.example.chouseisan3.Model.Vote;
+import com.example.chouseisan3.Service.EventService;
 import com.example.chouseisan3.Service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,9 @@ import java.util.Optional;
 public class VoteController {
     @Autowired
     VoteService voteService;
+
+    @Autowired
+    EventService eventService;
     @GetMapping("/findAll")
     public ResponseEntity<Iterable<Vote>> findAll() {
         List<Vote> votes = (List<Vote>) voteService.findAll();
@@ -73,11 +78,20 @@ public class VoteController {
         return new ResponseEntity<>(vote1.get(), HttpStatus.OK);
     }
 
-    @GetMapping("/findEventId")
+    @GetMapping("/findAllEventId")
     public ResponseEntity<Iterable<Vote>> findEventId() {
         List<Vote> votes = (List<Vote>) voteService.findByEventId();
-        return new ResponseEntity<>(votes, HttpStatus.OK);
+        List<Event> events= (List<Event>) eventService.findAll();
+        for (int i = 0; i < events.size(); i++) {
+            for (int j = 0; j < votes.size(); j++) {
+                if (votes.get(i).getId()== events.get(j).getId()){
+
+                }
+            }
+        }
     }
+
+
 //    @PutMapping("/vote/{id}/tick")
 //    public ResponseEntity<Vote> increaseTick(@PathVariable Long id) {
 //        Vote vote = voteService.findById(id).get();
