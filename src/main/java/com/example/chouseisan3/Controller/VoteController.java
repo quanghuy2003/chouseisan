@@ -72,6 +72,12 @@ public class VoteController {
         voteService.save(vote);
         return new ResponseEntity<>(vote1.get(), HttpStatus.OK);
     }
+
+    @GetMapping("/findEventId")
+    public ResponseEntity<Iterable<Vote>> findEventId() {
+        List<Vote> votes = (List<Vote>) voteService.findByEventId();
+        return new ResponseEntity<>(votes, HttpStatus.OK);
+    }
 //    @PutMapping("/vote/{id}/tick")
 //    public ResponseEntity<Vote> increaseTick(@PathVariable Long id) {
 //        Vote vote = voteService.findById(id).get();

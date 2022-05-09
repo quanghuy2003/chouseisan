@@ -12,4 +12,6 @@ public interface IVoteService extends IService<Vote> {
     Iterable<Vote> schedule();
     Iterable<Vote> status();
     Iterable<Vote> comment();
+
+    Iterable<Vote> findByEventId();
 }
