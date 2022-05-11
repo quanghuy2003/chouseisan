@@ -30,4 +30,9 @@ public class EventService implements IEventService{
     public void remove(Long id) {
         eventRepository.deleteById(id);
     }
+
+//    @Override
+//    public Iterable<Event> time() {
+//        return eventRepository.time();
+//    }
 }

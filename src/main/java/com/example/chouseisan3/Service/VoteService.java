@@ -50,19 +50,4 @@ public class VoteService implements IVoteService{
     public Iterable<Vote> findByEventId() {
         return  voteRepository.findByEventId();
     }
-//
-//    @Override
-//    public Iterable<Vote> numberOfTick() {
-//        return voteRepository.numberOfTick();
-//    }
-//
-//    @Override
-//    public Iterable<Vote> numberOfQuestionMark() {
-//        return voteRepository.numberOfQuestionMark();
-//    }
-//
-//    @Override
-//    public Iterable<Vote> numberOfRefuse() {
-//        return voteRepository.numberOfRefuse();
-//    }
 }

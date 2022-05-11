@@ -1,6 +1,8 @@
 package com.example.chouseisan3.Controller;
 
+import com.example.chouseisan3.Model.Event;
 import com.example.chouseisan3.Model.Vote;
+import com.example.chouseisan3.Service.EventService;
 import com.example.chouseisan3.Service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,9 @@ import java.util.Optional;
 public class VoteController {
     @Autowired
     VoteService voteService;
+
+    @Autowired
+    EventService eventService;
     @GetMapping("/findAll")
     public ResponseEntity<Iterable<Vote>> findAll() {
         List<Vote> votes = (List<Vote>) voteService.findAll();
@@ -78,56 +83,4 @@ public class VoteController {
         List<Vote> votes = (List<Vote>) voteService.findByEventId();
         return new ResponseEntity<>(votes, HttpStatus.OK);
     }
-//    @PutMapping("/vote/{id}/tick")
-//    public ResponseEntity<Vote> increaseTick(@PathVariable Long id) {
-//        Vote vote = voteService.findById(id).get();
-//        int tick = vote.getTick() + 1;
-//        vote.setTick(tick);
-//        vote.setId(id);
-//        voteService.save(vote);
-//        return new ResponseEntity<>(vote, HttpStatus.OK);
-//    }
-//    @PutMapping("/vote/{id}/questionMark")
-//    public ResponseEntity<Vote> increaseQuestionMark(@PathVariable Long id) {
-//        Vote vote = voteService.findById(id).get();
-//        int questionMark = vote.getQuestionMark() + 1;
-//        vote.setQuestionMark(questionMark);
-//        vote.setId(id);
-//        voteService.save(vote);
-//        return new ResponseEntity<>(vote, HttpStatus.OK);
-//    }
-//    @PutMapping("/vote/{id}/refuse")
-//    public ResponseEntity<Vote> increaseRefuse(@PathVariable Long id) {
-//        Vote vote = voteService.findById(id).get();
-//        int refuse = vote.getRefuse() + 1;
-//        vote.setRefuse(refuse);
-//        vote.setId(id);
-//        voteService.save(vote);
-//        return new ResponseEntity<>(vote, HttpStatus.OK);
-//    }
-//    @GetMapping("/findAllTick")
-//    public ResponseEntity<Iterable<Vote>> getTick() {
-//        List<Vote> votes = (List<Vote>) voteService.numberOfTick();
-//        if (votes.isEmpty()) {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(votes, HttpStatus.OK);
-//    }
-//    @GetMapping("/findAllQuestionMark")
-//    public ResponseEntity<Iterable<Vote>> getQuestionMark() {
-//        List<Vote> votes = (List<Vote>) voteService.numberOfQuestionMark();
-//        if (votes.isEmpty()) {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(votes, HttpStatus.OK);
-//    }
-//    @GetMapping("/findAllRefuse")
-//    public ResponseEntity<Iterable<Vote>> getRefuse() {
-//        List<Vote> votes = (List<Vote>) voteService. numberOfRefuse();
-//        if (votes.isEmpty()) {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(votes, HttpStatus.OK);
-//    }
-
 }

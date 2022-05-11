@@ -23,6 +23,11 @@ public class EventController {
         }
         return new ResponseEntity<>(events, HttpStatus.OK);
     }
+//    @GetMapping("/findAllTime")
+//    public ResponseEntity<Iterable<Event>> findAllTime() {
+//        List<Event> events = (List<Event>) eventService.time();
+//        return new ResponseEntity<>(events, HttpStatus.OK);
+//    }
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
