@@ -78,7 +78,7 @@ public class VoteController {
         return new ResponseEntity<>(vote1.get(), HttpStatus.OK);
     }
 
-    @GetMapping("/findEventId")
+    @GetMapping("/findAllEventId")
     public ResponseEntity<Iterable<Vote>> findEventId() {
         List<Vote> votes = (List<Vote>) voteService.findByEventId();
         return new ResponseEntity<>(votes, HttpStatus.OK);
