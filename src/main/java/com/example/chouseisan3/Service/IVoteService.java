@@ -8,5 +8,6 @@ public interface IVoteService extends IService<Vote> {
     Iterable<Vote> status();
     Iterable<Vote> comment();
 
-    Iterable<Vote> findByEventId();
+    Iterable<Vote> findByEvent();
+
 }

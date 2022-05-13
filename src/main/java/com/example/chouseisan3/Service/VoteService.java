@@ -47,7 +47,7 @@ public class VoteService implements IVoteService{
     }
 
     @Override
-    public Iterable<Vote> findByEventId() {
-        return  voteRepository.findByEventId();
+    public Iterable<Vote> findByEvent() {
+        return  voteRepository.findByEvent();
     }
 }
